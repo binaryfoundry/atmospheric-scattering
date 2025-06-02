@@ -93,7 +93,7 @@ int sdl_init(std::unique_ptr<IApplication>& app)
 static int sdl_init_graphics()
 {
     sdl_window = SDL_CreateWindow(
-        "fisica-rt",
+        "atmospheric-scattering",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
         window_width,
