@@ -73,11 +73,11 @@ void Application::Update()
 
     camera->orientation.yaw +=
         static_cast<float>(captured_mouse_delta_x) /
-        (mouse_speed * fps_scale * window_aspect_ratio);
+        (mouse_speed * window_aspect_ratio);
 
     camera->orientation.pitch +=
         static_cast<float>(captured_mouse_delta_y) /
-        (mouse_speed * fps_scale);
+        (mouse_speed);
 
     camera->viewport = glm::vec4(
         0, 0,
@@ -178,7 +178,7 @@ bool Application::GuiUpdate()
         "Exposure",
         &camera->exposure,
         0,
-        2);
+        3);
 
     auto& uniforms = pipeline.uniforms();
 
