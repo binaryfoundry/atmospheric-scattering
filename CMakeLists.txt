@@ -261,6 +261,6 @@ elseif (EMSCRIPTEN)
     set_target_properties(
         ${PROJECT_NAME}
         PROPERTIES SUFFIX ".html"
-        LINK_FLAGS "--bind -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s USE_WEBGL2=1 -s WASM=1 -s NO_EXIT_RUNTIME=1 -s ALLOW_MEMORY_GROWTH=1 -s --emrun -std=c++11 -O3 --preload-file files --shell-file \"${PROJECT_SOURCE_DIR}/shell.html\" --use-preload-plugins --no-heap-copy")
+        LINK_FLAGS "--bind -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s USE_WEBGL2=1 -s WASM=1 -s NO_EXIT_RUNTIME=1 -s ALLOW_MEMORY_GROWTH=1 -std=c++11 -O3 --preload-file files --shell-file \"${PROJECT_SOURCE_DIR}/shell.html\" --use-preload-plugins --no-heap-copy")
 
 endif ()

@@ -5,6 +5,8 @@
 #include <vector>
 #include <array>
 
+#include <stb/stb_image.h>
+
 // TODO generic location
 enum class Filter
 {
@@ -198,6 +200,7 @@ namespace GL
             const std::string file,
             const size_t index = 0)
         {
+#if !defined(EMSCRIPTEN)
             if      constexpr (std::is_same_v<T, TexDataByteRGBA>)
             {
                 int t_width, t_height, t_channels;
@@ -264,6 +267,7 @@ namespace GL
             {
                 assert(false);
             }
+#endif
         }
 
         void Delete()
