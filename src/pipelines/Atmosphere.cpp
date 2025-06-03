@@ -19,14 +19,6 @@ namespace Pipelines
 
         camera_uniforms =
             std::make_unique<UniformBuffer<CameraUniforms>>();
-
-        atmosphere =
-            std::make_unique<FrameBuffer<TexDataFloatRGBA>>();
-
-        atmosphere->Create(
-            1024,
-            1024,
-            true);
     }
 
     void Atmosphere::Deinit()
@@ -41,6 +33,14 @@ namespace Pipelines
         const uint32_t framebuffer_width,
         const uint32_t framebuffer_height)
     {
+        atmosphere =
+            std::make_unique<FrameBuffer<TexDataFloatRGBA>>();
+
+        atmosphere->Create(
+            framebuffer_width,
+            framebuffer_height,
+            true);
+
         camera_uniforms =
             std::make_unique<UniformBuffer<CameraUniforms>>();
 
@@ -101,6 +101,7 @@ namespace Pipelines
 
         framebuffer->Delete();
         camera_uniforms->Delete();
+        atmosphere->Delete();
         atmosphere_uniforms->Delete();
     }
 
