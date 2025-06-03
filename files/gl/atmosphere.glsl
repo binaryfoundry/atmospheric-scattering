@@ -145,10 +145,12 @@
 
         float step_length = eye_depth / float(step_count);
 
+        float eye_extinction_margin = 0.15;
+
         float eye_extinction = horizon_extinction(
             eye_position,
             eyedir,
-            surface_height - 0.25);
+            surface_height - eye_extinction_margin);
 
         vec3 rayleigh_collected = vec3(0.0);
         vec3 mie_collected = vec3(0.0);
@@ -161,7 +163,7 @@
             float extinction = horizon_extinction(
                 position,
                 -direction,
-                surface_height);
+                surface_height - eye_extinction_margin);
 
             float sample_depth = atmospheric_depth(
                 position,
